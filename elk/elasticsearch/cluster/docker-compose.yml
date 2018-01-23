@@ -1,11 +1,11 @@
 version: '2.2'
 services:
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.1.2
-    container_name: elasticsearch
+    image: elasticsearch:v1
+    container_name: elasticsearch1
     environment:
       - cluster.name=docker-cluster
-      - node.name=elasticsearch
+      - node.name=elasticsearch1
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
@@ -20,7 +20,7 @@ services:
     networks:
       - esnet
   elasticsearch2:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.1.2
+    image: elasticsearch:v1
     container_name: elasticsearch2
     environment:
       - cluster.name=docker-cluster
@@ -37,7 +37,7 @@ services:
     networks:
       - esnet
   elasticsearch3:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.1.2
+    image: elasticsearch:v1
     container_name: elasticsearch3
     environment:
       - cluster.name=docker-cluster
