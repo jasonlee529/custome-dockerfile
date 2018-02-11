@@ -1,0 +1,13 @@
+version: "2.2"
+services:
+    jenkins:
+        image: infisa/jenkins:v1
+        container_name: jenkins_master
+        volumes:
+            - jenkins_data1:/var/jenkins_home
+        ports:
+            - 8081:8080
+            - 50001:50000
+volumes:
+    jenkins_data1:
+        driver : local
