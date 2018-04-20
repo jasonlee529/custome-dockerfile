@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t elasticsearch:v1 .
+docker build -t elastic-ik .
