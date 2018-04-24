@@ -1,7 +1,7 @@
 version: '2.2'
 services:
   elasticsearch:
-    image: elasticsearch:v1
+    image: elastic-ik
     container_name: elasticsearch1
     environment:
       - cluster.name=docker-cluster
@@ -20,7 +20,7 @@ services:
     networks:
       - esnet
   elasticsearch2:
-    image: elasticsearch:v1
+    image: elastic-ik
     container_name: elasticsearch2
     environment:
       - cluster.name=docker-cluster
@@ -37,7 +37,7 @@ services:
     networks:
       - esnet
   elasticsearch3:
-    image: elasticsearch:v1
+    image: elastic-ik
     container_name: elasticsearch3
     environment:
       - cluster.name=docker-cluster
