@@ -1,0 +1,74 @@
+version: '2.2'
+servicesi:
+    elasticsearch1:
+    image: elastic-ik
+    container_name: elasticsearch1
+    environment:
+      - cluster.name=docker-cluster
+      - node.name=elasticsearch1
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - esnet
+  elasticsearch2:
+    image: elastic-ik
+    container_name: elasticsearch2
+    environment:
+      - cluster.name=docker-cluster
+      - node.name=elasticsearch2
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata2:/usr/share/elasticsearch/data
+    networks:
+      - esnet
+  elasticsearch3:
+    image: elastic-ik
+    container_name: elasticsearch3
+    environment:
+      - cluster.name=docker-cluster
+      - node.name=elasticsearch3
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch,elasticsearch2"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata3:/usr/share/elasticsearch/data
+    networks:
+      - esnet
+   kibana:
+     image: docker.elastic.co/kibana/kibana:6.2.3
+     container_name: kibana1
+     environment:
+       SERVER_NAME: kibana
+       ELASTICSEARCH_URL: http://192.168.1.162:9200/
+     ports:
+          - 5601:5601
+
+volumes:
+  esdata1:
+    driver: local
+  esdata2:
+    driver: local
+  esdata3:
+    driver: local
+
+networks:
+  esnet:
