@@ -58,9 +58,11 @@ services:
     container_name: kibana1
     environment:
       SERVER_NAME: kibana
-      ELASTICSEARCH_URL: http://localhost:9200/
+      ELASTICSEARCH_URL: http://elasticsearch1:9200/
     ports:
           - 5601:5601
+    networks:
+      - esnet
 
 volumes:
   esdata1:
