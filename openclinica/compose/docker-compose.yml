@@ -16,7 +16,7 @@ services:
   openclinica-server:
     image: piegsaj/openclinica
     ports:
-      - 8000:8000
+      - 8000:8080
     volumes:
       - oc-data:/usr/local/tomcat/openclinica.data
     restart: always
