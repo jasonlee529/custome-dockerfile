@@ -11,7 +11,7 @@ services:
      - kanboard_ssl:/etc/nginx/ssl
      - ./config.php:/var/www/app/config.php
     environment :
-     - DATABASE_URL=mysql://root:sa@192.168.1.25:3306/kanboard
+     - DATABASE_URL=mysql://kanboard:kanboard@192.168.1.62:3306/kanboard
 volumes:
   kanboard_data:
     driver: local
