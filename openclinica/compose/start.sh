@@ -7,12 +7,13 @@ docker container run --name ocdb -d -v ocdb-data:/var/lib/postgresql/data \
  -e POSTGRES_PASSWORD=postgres123 \
  postgres:9.5
  
+sleep 100;
  docker container run --name oc -h oc -d -v oc-data:/usr/local/tomcat/openclinica.data \
  -p 8080:8080 \
  -e LOG_LEVEL=INFO \
  -e TZ=UTC-1 \
  -e DB_TYPE=postgres \
- -e DB_HOST=localhost \
+ -e DB_HOST=192.168.1.25 \
  -e DB_NAME=openclinica \
  -e DB_USER=clinica \
  -e DB_PASS=clinica \
