@@ -1,0 +1,6 @@
+[mysqld]
+server-id=1
+log-bin=log
+binlog-do-db=mstest     
+
+binlog-ignore-db=mysql  
