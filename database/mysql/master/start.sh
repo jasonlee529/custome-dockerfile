@@ -1,1 +1,1 @@
- docker run --name mysql-master -p 3306:3306 -v $PWD:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
+docker run --name mysql-master -p 3306:3306 -v $PWD:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
