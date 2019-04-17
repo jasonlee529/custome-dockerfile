@@ -11,3 +11,4 @@ define('DB_PASSWORD', 'kanboard');
 define('DB_HOSTNAME', '192.168.1.62');
 define('DB_PORT', '3306');
 define('DB_NAME', 'kanboard');
+?> 
