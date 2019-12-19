@@ -1,0 +1,15 @@
+input {
+  jdbc {
+    jdbc_driver_library => "mysql-connector-java-5.1.36-bin.jar"
+    jdbc_driver_class => "com.mysql.jdbc.Driver"
+    jdbc_connection_string => "jdbc:mysql://192.168.1.174:3306/hospital"
+    jdbc_user => "root"
+    jdbc_password => "1qaz@WSX"
+    schedule => "* * * * *"
+    statement => "select * from hospital.ods_test_master"
+  }
+}
+output {
+  elasticsearch { hosts => ["localhost:9200"] }
+  stdout { codec => rubydebug }
+}
